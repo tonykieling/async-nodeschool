@@ -3,11 +3,10 @@ const async = require('async');
 const fs = require('fs')
 
 async.waterfall([
-  function(cb) {
+  cb => {
     cb(null, fs.readFileSync(process.argv[2], 'utf8'))
   },
-  function(url, cb) {
-    // console.log("url: ", url)
+  (url, cb) => {
     let body = ""
     http.get(url, function(res){  
       res.on('data', function(chunk){  
