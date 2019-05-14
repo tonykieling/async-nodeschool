@@ -1,19 +1,23 @@
-const myFunc = (toDo, a, b) => {
-  return new Promise((res, rej) => {
-    try {
-      console.log("operator is '", toDo, "' , a=", a, ", b=", b)
-      if (toDo === "+") res(`a + b = ${a + b}`)
-      if (toDo === "-") res(`a - b = ${a - b}`)
-      throw new Error("something wrong!")
-    } 
-    catch (e) {
-      rej(e.message)
-    }
-  })
-}
+// https://medium.freecodecamp.org/how-to-master-async-await-with-this-real-world-example-19107e7558ad
+// diff btw promise and async/await:
 
-myFunc("+", 1, 3)
-  // .then(console.log, error => console.error(error))
-  .then(console.log)  // handling resolve
-  .then(_ => console.log("all good"))
-  .catch(console.log) // hangling reject
+// Async/Await
+
+const asyncGreeting = async () => "async"
+// const asyncGreeting = async () => {
+//   throw new Error('ASYNC Greetings');
+// }
+
+asyncGreeting()
+.then(result => console.log(result))
+.catch(error => console.log(error.message))
+
+
+
+// Promises
+const promiseGreeting = () => new Promise(((resolve) => {
+  resolve('PROMISE Greetings');
+}));
+
+promiseGreeting()
+  .then(result => console.log(result));
