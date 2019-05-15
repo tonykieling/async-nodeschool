@@ -3,9 +3,9 @@
 
 // Async/Await
 
-const asyncGreeting = async () => "async"
+asyncGreeting = async () => "ASYNC Greetings"
 // const asyncGreeting = async () => {
-//   throw new Error('ASYNC Greetings');
+//   throw new Error('ASYNC ERROR');
 // }
 
 asyncGreeting()
@@ -15,7 +15,7 @@ asyncGreeting()
 
 
 // Promises
-const promiseGreeting = () => new Promise(((resolve) => {
+promiseGreeting = () => new Promise(((resolve) => {
   resolve('PROMISE Greetings');
 }));
 
