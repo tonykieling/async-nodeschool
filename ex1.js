@@ -8,10 +8,8 @@ async.waterfall([
   },
   (url, cb) => {
     let body = ""
-    http.get(url, function(res){  
-      res.on('data', function(chunk){  
-        body += chunk.toString();  
-      });  
+    http.get(url, function(res){
+      res.on('data', chunk => body += chunk.toString());  
       res.on('end', function(){  
         cb(null, body);  
       });  
