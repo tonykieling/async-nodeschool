@@ -1,0 +1,23 @@
+{
+  "name": "async-you",
+  "version": "1.0.0",
+  "description": "",
+  "main": "aux.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tonykieling/async-nodeschool.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tonykieling/async-nodeschool/issues"
+  },
+  "homepage": "https://github.com/tonykieling/async-nodeschool#readme",
+  "dependencies": {
+    "axios": "^0.18.0"
+  }
+}
