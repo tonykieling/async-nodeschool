@@ -7,15 +7,18 @@ const myKey = process.env.KEY
 
 // const getCurrency = async (fromCurrency, toCurrency) => {
 async function getCurrency(fromCurrency, toCurrency) {
-  let response = ""
+  // let response = ""
   try {
-    response =  await axios.get(`http://apilayer.net/api/live?access_key=${myKey}&currencies=EUR,GBP,CAD,PLN&source=USD&format=1`);
-    console.log(fromCurrency, toCurrency)
+    return axios.get(`http://apilayer.net/api/live?access_key=${myKey}&currencies=EUR,GBP,CAD,PLN&source=USD&format=1`)
+      // .then(res => console.log(res.data))
+    // console.log(fromCurrency, toCurrency)
+    // return response
     // console.log("response= ", response.data)
   } catch(err) {
-    console.log("err:: ", err)
+    // console.log("err:: ", err)
+    return("err:: ", err)
   }
-  return await (response.data)
+  // return await (response.data)
   // const response =  await axios
   // return await axios
   //   .get(`http://apilayer.net/api/live?access_key=${myKey}&currencies=EUR,GBP,CAD,PLN&source=USD&format=1`);
@@ -27,5 +30,6 @@ async function getCurrency(fromCurrency, toCurrency) {
   //   return response
 }
 
-// getCurrency()
-console.log("asd: ", getCurrency(1, 2))
+getCurrency()
+  .then(res => console.log(res.data))
+// console.log("asd: ", getCurrency(1, 2))
