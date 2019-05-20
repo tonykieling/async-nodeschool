@@ -6,7 +6,7 @@ require('dotenv').config()
 const myKey = process.env.KEY
 
 // const getCurrency = async (fromCurrency, toCurrency) => {
-async function getCurrency(fromCurrency, toCurrency) {
+export async function getCurrency(fromCurrency, toCurrency) {
   try {
     return axios.get(`http://apilayer.net/api/live?access_key=${myKey}&currencies=EUR,GBP,CAD,PLN&source=USD&format=1`)
   } catch(err) {
@@ -14,5 +14,5 @@ async function getCurrency(fromCurrency, toCurrency) {
   }
 }
 
-getCurrency()
-  .then(res => console.log(res.data))
+// const result = getCurrency()
+//   .then(res => res.data)
