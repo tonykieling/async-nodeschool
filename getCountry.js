@@ -5,13 +5,7 @@
 //   return response
 // }
 
-// console.log(getCountry)
-// 'use strict';
 const cur = require('./getCurrency.js')
-// import { foo, asd } from 'getCurrency.js'
-// getCurrency()
-//   .then(res => console.log("123: ", res))
-// console.log("a: ", cur)
 
 cur()
   .then(r => console.log("r: ",r))

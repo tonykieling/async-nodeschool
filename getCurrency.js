@@ -10,17 +10,12 @@ const myKey = process.env.KEY
 // const getCurrency = async (fromCurrency, toCurrency) => {
 async function getCurrency(fromCurrency, toCurrency) {
   try {
-    return axios
+    const res = await axios
       .get(`http://apilayer.net/api/live?access_key=${myKey}&currencies=EUR,GBP,CAD,PLN&source=USD&format=1`)
+    return res.data
   } catch(err) {
     return("err:: ", err)
   }
 }
-
-// const result = getCurrency()
-//   .then(res => res.data)
-
-// const foo = Math.PI + Math.SQRT2;
-// const asd = "asd"
 
 module.exports = getCurrency
