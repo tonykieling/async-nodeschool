@@ -19,9 +19,9 @@ const getCountry = require('./getCountry.js')
 infoCountry = async (countryFrom, countryTo) => {
   try {
     // const countryCodeFrom = await axios.get(`https://restcountries.eu/rest/v2/name/${countryFrom}`);
-    const countryCodeFrom = await getCountry(countryFrom);
+    // const countryCodeFrom = await getCountry(countryFrom);
     // console.log("asd: ", countryCodeFrom.data[0].currencies[0].code)
-    const countryCodeTo = await getCountry(countryTo)
+    // const countryCodeTo = await getCountry(countryTo)
     // console.log("asd: ", countryCodeTo.data[0].currencies[0])
     const exchange = await getCurrency(countryFrom, countryTo)
     // const res = await axios

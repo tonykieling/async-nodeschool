@@ -4,11 +4,21 @@
 const axios = require('axios')
 require('dotenv').config()
 const myKey = process.env.KEY
+const getCountry = require('./getCountry.js')
 
-function getCurrency(fromCurrency, toCurrency, code = 0) {
+getCurrency = async (fromCurrency, toCurrency) => {
+  // console.log("fromCurrency:: ", fromCurrency, "toCurrency:: ", toCurrency)
+  const code1 = await getCountry(fromCurrency)
+  // console.log("code1= ", code1.data[0].currencies[0].code)
+  // console.log(Date.now())
+  const code2 = await getCountry(toCurrency)
+  // console.log(`code2= '${code2.data[0].currencies[0].code}'`)
+  // console.log(Date.now())
+
   return new Promise((res, rej) => {
     try {
-      const result = axios.get(`http://apilayer.net/api/live?access_key=${myKey}&currencies=CAD&source=USD&format=1`)
+      const result = axios
+      .get(`http://apilayer.net/api/live?access_key=${myKey}&currencies=${code1.data[0].currencies[0].code}&source=${code2.data[0].currencies[0].code}&format=1`)
       res(result)
     } catch(err) {
       rej(err.message)
