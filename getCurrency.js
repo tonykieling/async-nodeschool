@@ -7,13 +7,13 @@ const myKey = process.env.KEY
 const getCountry = require('./getCountry.js')
 
 getCurrency = async (fromCurrency, toCurrency) => {
-  const code1 = await getCountry(fromCurrency)
-  const code2 = await getCountry(toCurrency)
+  const code1 = await getCountry(fromCurrency, "code")
+  const code2 = await getCountry(toCurrency, "code")
 
   return new Promise((res, rej) => {
     try {
       const result = axios
-      .get(`http://apilayer.net/api/live?access_key=${myKey}&currencies=${code1.data[0].currencies[0].code}&source=${code2.data[0].currencies[0].code}&format=1`)
+      .get(`http://apilayer.net/api/live?access_key=${myKey}&currencies=${code1}&source=${code2}&format=1`)
       res(result)
     } catch(err) {
       rej(err.message)
@@ -21,7 +21,7 @@ getCurrency = async (fromCurrency, toCurrency) => {
   });
 }
 // # one way to call, locally
-// getCurrency()
+// getCurrency("brazil", "united")
 //   .then(result => console.log(result.data))
 
 // # another way, as it was called externally
