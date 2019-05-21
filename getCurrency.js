@@ -3,10 +3,10 @@
 
 const axios = require('axios')
 require('dotenv').config()
-
 const myKey = process.env.KEY
 
-// const getCurrency = async (fromCurrency, toCurrency) => {
+// this function returns the actual currency convertion from / to
+// it has to receive the countries' (from and to) code
 async function getCurrency(fromCurrency, toCurrency) {
   try {
     const res = await axios
