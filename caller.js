@@ -10,11 +10,18 @@ infoCountry = async (countryFrom, countryTo) => {
   
   const exchange = await getCurrency(countryFrom, countryTo)
   
+
+  // nice and simple date formating
+  // from https://stackoverflow.com/questions/14638018/current-time-formatting-with-javascript
+  const d = new Date();
+  // d.toLocaleString();       // -> "2/1/2013 7:37:08 AM"
+  // d.toLocaleDateString();   // -> "2/1/2013"
+  // d.toLocaleTimeString();
+
   console.log(`
     ### CURRENCY CONVERSION ###
-    Right now, ${Date.now()}
-    One 
-    ${exchange.data.success}
+    Right now, ${d.toLocaleString()}
+    ${JSON.stringify(exchange.data.quotes)}
   `)
 }
 
