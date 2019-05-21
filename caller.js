@@ -16,9 +16,6 @@ const getCountry = require('./getCountry.js')
 // const ax = Promise.all([getCou('brazil'), getCur()])
 // console.log("ax: ", ax)
 
-
-// countryCode.data[0].currencies[0].code
-
 infoCountry = async (countryFrom, countryTo) => {
   try {
     // const countryCodeFrom = await axios.get(`https://restcountries.eu/rest/v2/name/${countryFrom}`);
@@ -36,5 +33,5 @@ infoCountry = async (countryFrom, countryTo) => {
     return err.message
   }
 }
-// console.log("hi")
+
 infoCountry("canada", "united")
