@@ -4,7 +4,6 @@ const axios = require('axios')
 
 // this function returns infor about the passed country
 module.exports = getCountry = (country, code) => {
-console.log("code== ", code, "country+ ", country)
   return new Promise((res, rej) => {
     try {
       f = async () => {
@@ -12,8 +11,8 @@ console.log("code== ", code, "country+ ", country)
         const countryInfo = await axios.get(`https://restcountries.eu/rest/v2/name/${country}`);
         if (code)
           res(countryInfo.data[0].currencies[0].code)
-        // res(countryInfo.data[0])
-        res(countryInfo)
+        // here, it's possible to define other flags to return only that data, such as capital, language, and so on
+        res(countryInfo.data[0])
       }
       f()
     } catch(err) {
