@@ -3,35 +3,37 @@ const axios = require('axios')
 // const myKey = process.env.KEY
 
 const getCurrency = require('./getCurrency.js')
-const getCountry = require('./getCountry.js')
-
-// getCur()
-//   .then(console.log)
-
-// getCou('brazil')
-//   .then(console.log)
-
-// const ax = getCou().then()
-
-// const ax = Promise.all([getCou('brazil'), getCur()])
-// console.log("ax: ", ax)
+// const getCountry = require('./getCountry.js')
 
 infoCountry = async (countryFrom, countryTo) => {
-  try {
-    // const countryCodeFrom = await axios.get(`https://restcountries.eu/rest/v2/name/${countryFrom}`);
-    // const countryCodeFrom = await getCountry(countryFrom);
-    // console.log("asd: ", countryCodeFrom.data[0].currencies[0].code)
-    // const countryCodeTo = await getCountry(countryTo)
-    // console.log("asd: ", countryCodeTo.data[0].currencies[0])
-    const exchange = await getCurrency(countryFrom, countryTo)
-    // const res = await axios
-      // .get(`http://apilayer.net/api/live?access_key=${myKey}&currencies=${countryCodeFrom.data[0].currencies[0].code}&source=${countryCodeTo.data[0].currencies[0].code}&format=1`)
-      // .get(`http://apilayer.net/api/live?access_key=${myKey}&currencies=CAD&source=USD&format=1`)
-    console.log("res= ", exchange.data)
-    // return await countryCode.data[0].currencies[0].code
-  } catch(err) {
-    return err.message
-  }
+  // console.log(Date.now())
+  
+  const exchange = await getCurrency(countryFrom, countryTo)
+  
+  console.log(`
+    ### CURRENCY CONVERSION ###
+    Right now, ${Date.now()}
+    One 
+    ${exchange.data.success}
+  `)
 }
 
-infoCountry("canada", "united")
+  // console.log("res= ", exchange.data.success)
+  // console.log(Date.now())
+  
+  // return new Promise((res, rej) => {
+  //   console.log(Date.now())
+  //   try {
+  //     console.log(Date.now())
+  //     // const countryCodeFrom = await getCountry(countryFrom);
+  //     // const countryCodeTo = await getCountry(countryTo)
+  //     // const exchange = await getCurrency(countryFrom, countryTo)
+  //     console.log("res= ", exchange.data.success)
+  //     res(exchange.data.success)
+  //   } catch(err) {
+  //     return err.message
+  //   }
+  // }
+  // )}
+
+infoCountry("brazil", "united")

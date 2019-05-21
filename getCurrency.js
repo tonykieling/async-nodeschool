@@ -7,13 +7,8 @@ const myKey = process.env.KEY
 const getCountry = require('./getCountry.js')
 
 getCurrency = async (fromCurrency, toCurrency) => {
-  // console.log("fromCurrency:: ", fromCurrency, "toCurrency:: ", toCurrency)
   const code1 = await getCountry(fromCurrency)
-  // console.log("code1= ", code1.data[0].currencies[0].code)
-  // console.log(Date.now())
   const code2 = await getCountry(toCurrency)
-  // console.log(`code2= '${code2.data[0].currencies[0].code}'`)
-  // console.log(Date.now())
 
   return new Promise((res, rej) => {
     try {
