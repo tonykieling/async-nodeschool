@@ -7,7 +7,7 @@ module.exports = getCountry = (country) => {
   return new Promise((res, rej) => {
     try {
       const countryInfo = axios.get(`https://restcountries.eu/rest/v2/name/${country}`);
-      // console.log(countryInfo.data[0].currencies[0].code)
+      // console.log(countryInfo)
       // return await countryInfo.data[0].currencies[0].code
       res(countryInfo)
     } catch(err) {
@@ -16,5 +16,5 @@ module.exports = getCountry = (country) => {
   })
 }
 
-getCountry("spain")
-  .then(country => console.log(country.data[0].capital))
+// getCountry("spain")
+//   .then(country => console.log(country.data[0].capital))

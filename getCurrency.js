@@ -20,7 +20,7 @@ const myKey = process.env.KEY
 // getCurrency()
 // module.exports = getCurrency
 
-function getCurrency(fromCurrency, toCurrency) {
+function getCurrency(fromCurrency, toCurrency, code = 0) {
   return new Promise((res, rej) => {
     try {
       const result = axios.get(`http://apilayer.net/api/live?access_key=${myKey}&currencies=CAD&source=USD&format=1`)
