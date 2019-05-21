@@ -30,14 +30,15 @@ function getCurrency(fromCurrency, toCurrency) {
     }
   });
 }
+// # one way to call, locally
 // getCurrency()
 //   .then(result => console.log(result.data))
 
-const asd = async() => {
-  const val = await getCurrency()
-  console.log("val: ", val.data)
-}
-
-asd()
+// # another way, as it was called externally
+// const asd = async() => {
+//   const val = await getCurrency()
+//   console.log("val: ", val.data)
+// }
+// asd()
 
 module.exports = getCurrency

@@ -2,15 +2,19 @@ const axios = require('axios')
 
 // const response = await axios.get(`https://restcountries.eu/rest/v2/currency/${currencyCode}`);
 
-// this function returns the code for a passed country
-module.exports = getCountry = async (country) => {
-  try {
-    const countryCode = await axios.get(`https://restcountries.eu/rest/v2/name/${country}`);
-    console.log(countryCode.data[0].currencies[0].code)
-    return await countryCode.data[0].currencies[0].code
-  } catch(err) {
-    return err.message
-  }
+// this function returns infor about the passed country
+module.exports = getCountry = (country) => {
+  return new Promise((res, rej) => {
+    try {
+      const countryInfo = axios.get(`https://restcountries.eu/rest/v2/name/${country}`);
+      // console.log(countryInfo.data[0].currencies[0].code)
+      // return await countryInfo.data[0].currencies[0].code
+      res(countryInfo)
+    } catch(err) {
+      rej(err.message)
+    }
+  })
 }
 
 getCountry("spain")
+  .then(country => console.log(country.data[0].capital))
