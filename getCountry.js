@@ -10,7 +10,7 @@ module.exports = getCountry = (country, code) => {
 
         const countryInfo = await axios.get(`https://restcountries.eu/rest/v2/name/${country}`);
         if (code)
-          res(countryInfo.data[0].currencies[0].code)
+          res(countryInfo.data[0])
         // here, it's possible to define other flags to return only that data, such as capital, language, and so on
         res(countryInfo.data[0])
       }
@@ -21,6 +21,6 @@ module.exports = getCountry = (country, code) => {
   })
 }
 
-// getCountry("spain", "code")
-//   .then(console.log)
+getCountry("italy", "code")
+  .then(console.log)
   // .then(country => console.log(country.data[0].capital))
